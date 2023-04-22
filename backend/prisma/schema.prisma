@@ -20,8 +20,15 @@ enum REGISTRATION_TYPE {
   GROUP
 }
 
+model Auth {
+  ID            String    @id
+  passwordHash  String
+  privKeyHash   String
+}
+
 model User {
   ID          String  @id
+  pubAddress  String
   posts       Post[]
   followers   Follows[] @relation(name: "followers")
   followings  Follows[] @relation(name: "followings")
