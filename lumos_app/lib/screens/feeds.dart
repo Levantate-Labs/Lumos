@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lumos_app/widgets/feeds_card.dart';
-import 'package:lumos_app/widgets/highlight_card.dart';
-import 'package:drop_shadow/drop_shadow.dart';
+
+import '../components/feeds_card.dart';
+import '../components/highlight_card.dart';
 
 class FeedsPage extends StatelessWidget {
   const FeedsPage({super.key});
