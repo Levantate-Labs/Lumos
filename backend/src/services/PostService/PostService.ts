@@ -1,8 +1,8 @@
 import { POST_TYPE, PrismaClient } from "@prisma/client";
 import { CreatePostParams, EventRegInvitationParams, EventRegistrationParams, Post, PrismaResponse } from "./types";
+import { IPostService } from './interfaces'
 
-
-export class PostService {
+export class PostService implements IPostService {
 
 
     prisma: PrismaClient;
