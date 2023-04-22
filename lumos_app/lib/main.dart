@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'controller/controller.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,27 +14,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lumos',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: MyHomePage(),
+      home: HomePage(),
     );
   }
 }
 
-class Controller extends GetxController {
-  var count = 0.obs;
-  increment() => count++;
-}
-
-class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
 
   final Controller c = Get.put(Controller());
 
@@ -59,8 +55,10 @@ class Other extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("${c.count}"),
+      body: Column(
+        children: [
+          Text("${c.count}"),
+        ],
       ),
     );
   }
