@@ -20,28 +20,27 @@ enum REGISTRATION_TYPE {
   GROUP
 }
 
-model Auth {
-  ID            String    @id
-  passwordHash  String
-  privKeyHash   String
-}
-
 model User {
-  ID          String  @id
-  pubAddress  String
-  posts       Post[]
-  followers   Follows[] @relation(name: "followers")
-  followings  Follows[] @relation(name: "followings")
-  eventRegistrations EventRegistrations[]
+  ID                  String  @id
+  name                String?
+  passwordHash        String
+  privKeyHash         String
+  pubAddress          String
+  posts               Post[]
+  followers           Follows[] @relation(name: "followers")
+  followings          Follows[] @relation(name: "followings")
+  eventRegistrations  EventRegistrations[]
 }
 
 model Post {
   ID                  String  @id
   content             String
   postType            POST_TYPE
+  tags                String[]
   eventRegistrations  EventRegistrations[]
   createdBy           User  @relation(fields: [createdById], references: [ID])
   createdById         String
+  createdAt           DateTime  @default(now())
 }
 
 model Follows {
