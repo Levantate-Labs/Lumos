@@ -29,28 +29,34 @@ model User {
 }
 
 model Post {
-  ID          String  @id
-  content     String
-  postType    POST_TYPE
+  ID                  String  @id
+  content             String
+  postType            POST_TYPE
   eventRegistrations  EventRegistrations[]
-  createdBy   User  @relation(fields: [createdById], references: [ID])
-  createdById String
+  createdBy           User  @relation(fields: [createdById], references: [ID])
+  createdById         String
 }
 
 model Follows {
-  ID          String  @id
-  follower    User    @relation(name: "followers", fields: [followerId], references: [ID])
-  followerId  String
-  following   User    @relation(name: "followings", fields: [followingId], references: [ID])
-  followingId String
+  ID                  String  @id
+  follower            User    @relation(name: "followers", fields: [followerId], references: [ID])
+  followerId          String
+  following           User    @relation(name: "followings", fields: [followingId], references: [ID])
+  followingId         String
+}
+
+model Event {
+  ID                  String   @id
+  name                String
+  dateOfEvent         DateTime 
 }
 
 model EventRegistrations {
-  ID          String  @id
-  post        Post    @relation(fields: [postId], references: [ID])
-  postId      String
-  user        User    @relation(fields: [userId], references: [ID])
-  userId      String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime @updatedAt
+  ID                  String  @id
+  post                Post    @relation(fields: [postId], references: [ID])
+  postId              String
+  user                User    @relation(fields: [userId], references: [ID])
+  userId              String
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime @updatedAt
 }
