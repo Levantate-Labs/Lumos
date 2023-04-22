@@ -36,7 +36,7 @@ const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* ()
     });
     if (auth) {
         if (auth.passwordHash == password) {
-            res.status(200).send({ message: "Found" });
+            res.status(200).send({ message: "Login successful" });
         }
         else {
             res.status(403).send({ message: "Wrong Password" });
