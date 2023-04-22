@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lumos_app/screens/Onboarding/Onboarding1.dart';
+import 'package:lumos_app/screens/welcome.dart';
 
 import 'components/AuthTiles.dart';
 
@@ -14,55 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lumos',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class Controller extends GetxController {
-  var count = 0.obs;
-  increment() => count++;
-}
-
-class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
-
-  final Controller c = Get.put(Controller());
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        // Use Obx(()=> to update Text() whenever count is changed.
-        appBar: AppBar(title: Obx(() => Text("Clicks: ${c.count}"))),
-
-        // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
-        body: Center(
-            child:SquareTile(imagePath: '', title: '',)),
-        floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add), onPressed: c.increment));
-  }
-}
-
-class Other extends StatelessWidget {
-  Other({super.key});
-
-  final Controller c = Get.find();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("${c.count}"),
-      ),
+      home: WelcomePage(),
     );
   }
 }

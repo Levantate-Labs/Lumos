@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../components/AuthButtons.dart';
 import '../../components/AuthInputs.dart';
@@ -39,7 +40,7 @@ class LoginPage extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Image.network(
-                'https://anmg-production.anmg.xyz/yaza-co-za_sfja9J2vLAtVaGdUPdH5y7gA',
+                'https://images.pexels.com/photos/16364331/pexels-photo-16364331.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load',
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 fit: BoxFit.cover,
@@ -89,7 +90,7 @@ class LoginPage extends StatelessWidget {
                                     const CircleAvatar(
                                       radius: 30,
                                       backgroundImage: NetworkImage(
-                                          'https://anmg-production.anmg.xyz/yaza-co-za_sfja9J2vLAtVaGdUPdH5y7gA'),
+                                          'https://images.pexels.com/photos/16364331/pexels-photo-16364331.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load'),
                                     ),
                                     SizedBox(
                                         width:
@@ -128,10 +129,7 @@ class LoginPage extends StatelessWidget {
                                 MyButtonAgree(
                                   text: "Continue",
                                   onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => LoginPage()));
+                                    Get.to(LoginPage());
                                   },
                                 ),
                                 const SizedBox(height: 30),
