@@ -16,7 +16,7 @@ class NavBar extends StatelessWidget {
             ),
           ),
           label: 'Home',
-          backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+          backgroundColor: Colors.blueAccent,
         ),
         BottomNavigationBarItem(
           icon: Container(
@@ -27,7 +27,7 @@ class NavBar extends StatelessWidget {
             ),
           ),
           label: 'Explore',
-          backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+          backgroundColor: Colors.blueAccent,
         ),
         BottomNavigationBarItem(
           icon: Container(
@@ -38,7 +38,7 @@ class NavBar extends StatelessWidget {
             ),
           ),
           label: 'Places',
-          backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+          backgroundColor: Colors.blueAccent,
         ),
         BottomNavigationBarItem(
           icon: Container(
@@ -49,7 +49,7 @@ class NavBar extends StatelessWidget {
             ),
           ),
           label: 'Settings',
-          backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+          backgroundColor: Colors.blueAccent,
         ),
       ],
     );
