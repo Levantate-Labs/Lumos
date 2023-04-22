@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lumos_app/screens/Onboarding/Onboarding1.dart';
+import 'package:lumos_app/screens/feeds.dart';
 import 'package:lumos_app/screens/welcome.dart';
 
 import 'components/AuthTiles.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: OnBoarding1(),
+      home: FeedsPage(),
     );
   }
 }

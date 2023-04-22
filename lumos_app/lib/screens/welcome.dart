@@ -9,6 +9,7 @@ import 'package:lumos_app/components/AuthInputs.dart';
 import 'package:lumos_app/components/AuthTiles.dart';
 import 'package:lumos_app/screens/auth/signup.dart';
 
+import '../components/navbar.dart';
 
 class WelcomePage extends StatelessWidget {
   WelcomePage({super.key});
@@ -52,169 +53,173 @@ class WelcomePage extends StatelessWidget {
                     color: Colors.white,
                     onPressed: () {},
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+                  Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    height: 150,
+                    child: Image(
+                      image: AssetImage('assets/images/levantate_sadha.png'),
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.018),
                   const Text("Hi !",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 40,
                           fontWeight: FontWeight.bold)),
-
-                  Image(image: AssetImage('assets/levantate sdada-01.png'),width: 100,),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   ClipRect(
                     child: BackdropFilter(
                       filter:
                           ImageFilter.blur(sigmaX: _sigmaX, sigmaY: _sigmaY),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(0, 0, 0, 1)
-                                .withOpacity(_opacity),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.63,
-                        child: Form(
-                          key: _formKey,
-                          child: Center(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                // username textfield
-                                MyTextField(
-                                  controller: usernameController,
-                                  hintText: 'Email',
-                                  obscureText: false,
-                                ),
-
-                                const SizedBox(height: 10),
-
-                                MyTextField(
-                                  controller: usernameController,
-                                  hintText: 'Password',
-                                  obscureText: false,
-                                ),
-                                const SizedBox(height: 10),
-
-                                // sign in button
-                                MyButton(
-                                  onTap: (() {
-                                    if (_formKey.currentState!.validate()) {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Signup()),
-                                      );
-                                    } else {
-                                      print('not valid');
-                                    }
-                                  }),
-                                ),
-
-                                const SizedBox(height: 10),
-
-                                // or continue with
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Divider(
-                                        thickness: 0.5,
-                                        color: Colors.grey[400],
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 10.0),
-                                      child: Text(
-                                        'Or',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 16),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Divider(
-                                        thickness: 0.5,
-                                        color: Colors.grey[400],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-
-                                const SizedBox(height: 10),
-
-                                // google + apple sign in buttons
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [
-                                      
-
-                                      // google button
-                                     
-                                      SizedBox(height: 10),
-
-                                      // apple button
-                                    ]
+                      child: Center(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(0, 0, 0, 1)
+                                  .withOpacity(_opacity),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30))),
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          child: Form(
+                            key: _formKey,
+                            child: Center(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const SizedBox(height: 30),
+                                  // username textfield
+                                  MyTextField(
+                                    controller: usernameController,
+                                    hintText: 'Email',
+                                    obscureText: false,
                                   ),
-                                ),
 
-                                const SizedBox(height: 10),
+                                  const SizedBox(height: 10),
 
-                                // not a member? register now
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        // ignore: prefer_const_literals_to_create_immutables
-                                        children: [
-                                          Text(
-                                            'Don\'t have an account?',
+                                  MyTextField(
+                                    controller: usernameController,
+                                    hintText: 'Password',
+                                    obscureText: true,
+                                  ),
+                                  const SizedBox(height: 10),
+
+                                  // sign in button
+                                  MyButton(
+                                    onTap: (() {
+                                      if (_formKey.currentState!.validate()) {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Signup()),
+                                        );
+                                      } else {
+                                        print('not valid');
+                                      }
+                                    }),
+                                  ),
+
+                                  const SizedBox(height: 10),
+
+                                  // or continue with
+                                  // Row(
+                                  //   children: [
+                                  //     Expanded(
+                                  //       child: Divider(
+                                  //         thickness: 0.5,
+                                  //         color: Colors.grey[400],
+                                  //       ),
+                                  //     ),
+                                  //     const Padding(
+                                  //       padding: EdgeInsets.symmetric(
+                                  //           horizontal: 10.0),
+                                  //       child: Text(
+                                  //         'Or',
+                                  //         style: TextStyle(
+                                  //             color: Colors.white, fontSize: 16),
+                                  //       ),
+                                  //     ),
+                                  //     Expanded(
+                                  //       child: Divider(
+                                  //         thickness: 0.5,
+                                  //         color: Colors.grey[400],
+                                  //       ),
+                                  //     ),
+                                  //   ],
+                                  // ),
+
+                                  // const SizedBox(height: 10),
+
+                                  // google + apple sign in buttons
+                                  // Padding(
+                                  //   padding: const EdgeInsets.all(8.0),
+                                  //   child: Column(
+                                  //       mainAxisSize: MainAxisSize.min,
+                                  //       mainAxisAlignment:
+                                  //           MainAxisAlignment.center,
+                                  //       children: const [
+                                  //         // google button
+
+                                  //         SizedBox(height: 10),
+
+                                  //         // apple button
+                                  //       ]),
+                                  // ),
+
+                                  const SizedBox(height: 10),
+
+                                  // not a member? register now
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          // ignore: prefer_const_literals_to_create_immutables
+                                          children: [
+                                            Text(
+                                              'Don\'t have an account?',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 20),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                            const SizedBox(width: 4),
+                                            TextButton(
+                                                onPressed: () {
+                                                  Get.to(Signup());
+                                                },
+                                                child: Text('Sign Up',
+                                                    style: TextStyle(
+                                                        color: Color.fromARGB(
+                                                            255, 71, 233, 133),
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20),
+                                                    textAlign:
+                                                        TextAlign.start)),
+                                          ],
+                                        ),
+                                        const Text('Forgot Password?',
                                             style: TextStyle(
-                                                color: Colors.white,
+                                                color: Color.fromARGB(
+                                                    255, 71, 233, 133),
+                                                fontWeight: FontWeight.bold,
                                                 fontSize: 20),
-                                            textAlign: TextAlign.start,
-                                          ),
-                                          const SizedBox(width: 4),
-                                          TextButton(
-                                            onPressed: (){
-                                              Get.to(Signup());
-                                            },
-                                            child:Text(
-                                            'Sign Up',
-                                            style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 71, 233, 133),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20),
-                                          textAlign: TextAlign.start)
-                                            
-                                          
-                                          ),
-                                          
-                                        ],
-                                      ),
-                                      
-                                      const Text('Forgot Password?',
-                                          style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 71, 233, 133),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20),
-                                          textAlign: TextAlign.start),
-                                    ],
+                                            textAlign: TextAlign.start),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
