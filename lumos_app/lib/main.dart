@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'controller/controller.dart';
+import 'package:lumos_app/screens/Onboarding/Onboarding1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,44 +21,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
-
-  final Controller c = Get.put(Controller());
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        // Use Obx(()=> to update Text() whenever count is changed.
-        appBar: AppBar(title: Obx(() => Text("Clicks: ${c.count}"))),
-
-        // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
-        body: Center(
-            child: ElevatedButton(
-                child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
-        floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add), onPressed: c.increment));
-  }
-}
-
-class Other extends StatelessWidget {
-  Other({super.key});
-
-  final Controller c = Get.find();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Text("${c.count}"),
-        ],
-      ),
+      home: OnBoarding1(),
     );
   }
 }
