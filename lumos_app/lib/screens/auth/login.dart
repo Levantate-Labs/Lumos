@@ -3,6 +3,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lumos_app/components/navbar.dart';
 
 import '../../components/AuthButtons.dart';
 import '../../components/AuthInputs.dart';
