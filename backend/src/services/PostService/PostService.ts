@@ -61,8 +61,4 @@ export class PostService {
             orderBy: { createdAt: 'desc' }
         });
     }
-
-    public async registerForEvent(): Promise<PrismaResponse> {
-        
-    }
 }
