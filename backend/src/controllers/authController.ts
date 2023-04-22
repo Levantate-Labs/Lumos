@@ -1,50 +1,39 @@
 import { PrismaClient } from '@prisma/client';
 import { Request, Response, NextFunction } from 'express'
+import { userService } from '../services/service-manager';
+import { UserRegisterParams, UserSignInParams } from '../services/UserService/types';
 
 
 const prisma = new PrismaClient();
 
 const register = async(req: Request, res: Response, next: NextFunction) => {
-    const { username, password, privateKeyHash } = req.body;
     try {
+        const params: UserRegisterParams = req.body;
 
-        await prisma.auth.create({ 
-            data: {
-                ID: username,
-                passwordHash: password,
-                privKeyHash: privateKeyHash
-            }
-        });
-        res.send({ message: "User registered" });
+        let serviceResponse = await userService.registerUser(params);
+        res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
 
     } catch(error: any) {
-        res.send({ error: "Username already exists" });
+        res.status(500).send({ error: "Internal Server Error" });
     }
 }
 
 const login = async(req: Request, res: Response, next: NextFunction) => {
-    const { username, password } = req.body;
 
-    let auth = await prisma.auth.findUnique({
-        where: {
-            ID: username
-        }
-    });
+    try {
+        const params: UserSignInParams = req.body;
 
-    if(auth) {
-        if(auth.passwordHash == password) {
-            res.status(200).send({ message: "Login successful" });
-        }
+        let serviceResponse = await userService.loginUser(params);
+        res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
+    
+    } catch(error: any) {
 
-        else {
-            res.status(403).send({ message: "Wrong Password" });
-        }
-    } else {
-        res.status(403).send({ message: "Username Not Found" });
     }
+
+
 }
 
 export default {
-    register
-    ,login
+    register,
+    login
 }

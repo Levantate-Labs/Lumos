@@ -13,12 +13,17 @@ export class PostService {
 
     public async createPost(params: CreatePostParams): Promise<PrismaResponse> {
         let user = await this.prisma.user.findUnique({ where: { ID: params.createdById } });
+        let post = await this.prisma.post.findUnique({ where: { ID: params.ID } });
+        
+        if(post) {
+            return { statusCode: 403, message: "Post already exists" };
+        }
 
         if(!user) {
             return { statusCode: 403, message: "User does not exist" };
         }
 
-        let post = await this.prisma.post.create({ data: params });
+        post = await this.prisma.post.create({ data: params });
         return { statusCode: 200, message: "Post Created Successfully" };
     }
 
@@ -26,12 +31,11 @@ export class PostService {
         return await this.prisma.post.findMany({ where: { postType: POST_TYPE.CONTENT } });
     }
 
-    public async getEvents(): Promise<Post[]> {
+    public async events(): Promise<Post[]> {
         return await this.prisma.post.findMany({ where: { postType: POST_TYPE.EVENT } });
     }
 
-    public async getPostsFeedForUser(userId: string): Promise<Post[]> {
-
+    public async postsFeedForUser(userId: string): Promise<Post[]> {
         let followings = await this.prisma.follows.findMany({ where: { followerId: userId }, select: { followingId: true } });
         let followingIds: string[] = followings.map(Obj => Obj.followingId);
         let posts = await this.prisma.post.findMany({ 
@@ -42,7 +46,7 @@ export class PostService {
         return posts;
     }
 
-    public async getPostsByTags(tag: string): Promise<Post[]> {
+    public async postsByTags(tag: string): Promise<Post[]> {
         let posts = await this.prisma.post.findMany({
             where: { tags: { has: tag } },
             orderBy: { createdAt: 'desc' }
@@ -51,7 +55,7 @@ export class PostService {
         return posts;
     }
 
-    public async getPostsByUser(userId: string): Promise<Post[]> {
+    public async postsByUser(userId: string): Promise<Post[]> {
         return await this.prisma.post.findMany({
             where: { createdById: userId },
             orderBy: { createdAt: 'desc' }
