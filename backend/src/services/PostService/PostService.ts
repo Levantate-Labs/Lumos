@@ -1,5 +1,5 @@
 import { POST_TYPE, PrismaClient } from "@prisma/client";
-import { CreatePostParams, Post, PrismaResponse } from "./types";
+import { CreatePostParams, EventRegInvitationParams, EventRegistrationParams, Post, PrismaResponse } from "./types";
 
 
 export class PostService {
@@ -25,6 +25,33 @@ export class PostService {
 
         post = await this.prisma.post.create({ data: params });
         return { statusCode: 200, message: "Post Created Successfully" };
+    }
+
+    public async registerForEvent(params: EventRegistrationParams, invites?: EventRegInvitationParams[]): Promise<PrismaResponse> {
+        let event = await this.prisma.post.findUnique({ where: { ID: params.postId } });
+        let user = await this.prisma.user.findUnique({ where: { ID: params.userId } });
+
+        if(event && user) {
+            let registration = await this.prisma.eventRegistrations.findUnique({ where: { ID: params.ID } });
+
+            if(!registration) {
+                registration = await this.prisma.eventRegistrations.create({ data: params });
+                
+                if(invites) {
+                    for(let i=0; i < invites.length; i++) {
+                        let invite = invites[i];
+                        
+                        await this.prisma.eventRegInvites.create({ data: invite });
+                    }
+                }
+
+                return { statusCode: 200, message: "Registered for event and invites sent" };
+            }
+
+            return { statusCode: 403, message: "Already registered" };
+        }
+
+        return { statusCode: 403, message: "Either event or user does not exist" };
     }
 
     public async posts(): Promise<Post[]> {

@@ -11,6 +11,20 @@ export type CreatePostParams = {
     createdById: string;
 }
 
+export type EventRegistrationParams = {
+    ID: string;
+    team: string;
+    teamLeader: string;
+    postId: string;
+    userId: string;
+}
+
+export type EventRegInvitationParams = {
+    ID: string;
+    eventRegistrationId: string;
+    inviteeId: string;
+}
+
 export type PrismaResponse = {
     statusCode: number;
     message: string;

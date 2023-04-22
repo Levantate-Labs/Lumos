@@ -3,7 +3,6 @@ import http from 'http';
 import { config } from './config'
 
 import userRoutes from './routes/userRoutes';
-import authRoutes from './routes/authRoutes';
 
 const router: Express = express();
 
@@ -28,7 +27,6 @@ const StartServer = async() => {
 
     // Routes to use
     router.use(`/user`, userRoutes);
-    router.use(`/auth`, authRoutes);
 
     /** Healthcheck */
     router.get('/healthcheck', (req, res, next) => res.status(200).json({ message: 'Still Alive!' }));
