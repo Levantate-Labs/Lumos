@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components/feeds_card.dart';
 import '../components/highlight_card.dart';
+import '../components/navbar.dart';
 
 class FeedsPage extends StatelessWidget {
   const FeedsPage({super.key});
@@ -80,16 +81,17 @@ class FeedsPage extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return FeedsCard(
-                    imgSrc: imgSrc,
-                    heading: heading,
-                    body: body,
-                    username: username,
-                  );
+                      imgSrc: imgSrc,
+                      heading: heading,
+                      body: body,
+                      username: username,
+                      profileIcon: profileIcon);
                 },
               ),
             ],
           ),
         ),
+        bottomNavigationBar: NavBar(),
       ),
     );
   }

@@ -7,14 +7,14 @@ class FeedsCard extends StatelessWidget {
     required this.username,
     required this.heading,
     required this.body,
-    this.profileIcon = const Icon(Icons.account_circle),
+    required this.profileIcon,
     required this.imgSrc,
   });
 
   final String imgSrc;
   final String heading;
   final String body;
-  final Icon profileIcon;
+  final String profileIcon;
   final String username;
 
   @override
@@ -40,7 +40,15 @@ class FeedsCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  profileIcon,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image(
+                      image: NetworkImage(profileIcon),
+                      height: 25,
+                      width: 25,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                   const SizedBox(
                     width: 2,
                   ),

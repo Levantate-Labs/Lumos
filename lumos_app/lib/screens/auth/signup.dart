@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lumos_app/components/AuthButtons.dart';
+import 'package:lumos_app/components/navbar.dart';
 import 'package:lumos_app/screens/auth/login.dart';
 
 import 'package:lumos_app/components/AuthInputs.dart';
