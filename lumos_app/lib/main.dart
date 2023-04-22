@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'components/AuthTiles.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -44,8 +46,7 @@ class MyHomePage extends StatelessWidget {
 
         // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
         body: Center(
-            child: ElevatedButton(
-                child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
+            child:SquareTile(imagePath: '', title: '',)),
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add), onPressed: c.increment));
   }
