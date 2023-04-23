@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components/feeds_card.dart';
 import '../components/highlight_card.dart';
-import '../components/navbar.dart';
+import '../navigation/navbar.dart';
 
 class FeedsPage extends StatelessWidget {
   const FeedsPage({super.key});

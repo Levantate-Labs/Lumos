@@ -11,46 +11,60 @@ class NavigationPage extends StatelessWidget {
       fontWeight: FontWeight.w500,
       fontSize: 12);
 
-  final TextStyle selectedLabelStyle =
-      TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12);
+  final TextStyle selectedLabelStyle = const TextStyle(
+      color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12);
 
-  buildBottomNavigationMenu(context, landingPageController) {
+  buildBottomNavigationMenu(context, navController) {
     return Obx(() => MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: SizedBox(
           height: 54,
           child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             showUnselectedLabels: true,
             showSelectedLabels: true,
-            onTap: landingPageController.changeTabIndex,
-            currentIndex: landingPageController.tabIndex.value,
+            onTap: navController.changeTabIndex,
+            currentIndex: navController.tabIndex.value,
             backgroundColor: Colors.green,
             unselectedItemColor: Colors.white.withOpacity(0.5),
             selectedItemColor: Colors.white,
             unselectedLabelStyle: unselectedLabelStyle,
             selectedLabelStyle: selectedLabelStyle,
-            items: [
+            items: const [
               BottomNavigationBarItem(
-                icon: Container(
-                  margin: EdgeInsets.only(bottom: 7),
-                  child: Icon(
-                    Icons.home,
-                    size: 20.0,
-                  ),
+                icon: Icon(
+                  Icons.home,
+                  size: 20.0,
                 ),
                 label: 'Home',
-                backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  margin: EdgeInsets.only(bottom: 7),
-                  child: Icon(
-                    Icons.person_4,
-                    size: 20.0,
-                  ),
+                icon: Icon(
+                  Icons.search,
+                  size: 20.0,
                 ),
-                label: 'Profile',
-                backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+                label: 'Search',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search,
+                  size: 20.0,
+                ),
+                label: 'Search',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search,
+                  size: 20.0,
+                ),
+                label: 'Search',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search,
+                  size: 20.0,
+                ),
+                label: 'Search',
               ),
             ],
           ),
@@ -59,16 +73,14 @@ class NavigationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NavController landingPageController =
+    final NavController navController =
         Get.put(NavController(), permanent: false);
     return SafeArea(
         child: Scaffold(
-      bottomNavigationBar:
-          buildBottomNavigationMenu(context, landingPageController),
+      bottomNavigationBar: buildBottomNavigationMenu(context, navController),
       body: Obx(() => IndexedStack(
-            index: landingPageController.tabIndex.value,
-            children: [
-              WelcomePage(),
+            index: navController.tabIndex.value,
+            children: const [
               FeedsPage(),
               ProfilePage(),
             ],

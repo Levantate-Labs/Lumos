@@ -7,7 +7,7 @@ import 'package:lumos_app/screens/feeds.dart';
 import 'package:lumos_app/screens/welcome.dart';
 
 import 'components/AuthTiles.dart';
-import 'components/navbar.dart';
+import 'navigation/navbar.dart';
 
 void main() {
   runApp(const MyApp());
