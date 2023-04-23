@@ -123,51 +123,6 @@ class WelcomePage extends StatelessWidget {
 
                                   const SizedBox(height: 10),
 
-                                  // or continue with
-                                  // Row(
-                                  //   children: [
-                                  //     Expanded(
-                                  //       child: Divider(
-                                  //         thickness: 0.5,
-                                  //         color: Colors.grey[400],
-                                  //       ),
-                                  //     ),
-                                  //     const Padding(
-                                  //       padding: EdgeInsets.symmetric(
-                                  //           horizontal: 10.0),
-                                  //       child: Text(
-                                  //         'Or',
-                                  //         style: TextStyle(
-                                  //             color: Colors.white, fontSize: 16),
-                                  //       ),
-                                  //     ),
-                                  //     Expanded(
-                                  //       child: Divider(
-                                  //         thickness: 0.5,
-                                  //         color: Colors.grey[400],
-                                  //       ),
-                                  //     ),
-                                  //   ],
-                                  // ),
-
-                                  // const SizedBox(height: 10),
-
-                                  // google + apple sign in buttons
-                                  // Padding(
-                                  //   padding: const EdgeInsets.all(8.0),
-                                  //   child: Column(
-                                  //       mainAxisSize: MainAxisSize.min,
-                                  //       mainAxisAlignment:
-                                  //           MainAxisAlignment.center,
-                                  //       children: const [
-                                  //         // google button
-
-                                  //         SizedBox(height: 10),
-
-                                  //         // apple button
-                                  //       ]),
-                                  // ),
-
                                   const SizedBox(height: 10),
 
                                   // not a member? register now

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lumos_app/components/AuthButtons.dart';
 import 'package:lumos_app/components/navbar.dart';
 import 'package:lumos_app/screens/auth/login.dart';
@@ -147,11 +148,7 @@ class Signup extends StatelessWidget {
                                     MyButtonAgree(
                                       text: "Agree and Continue",
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    LoginPage()));
+                                        Get.to(() => LoginPage());
                                       },
                                     ),
                                   ],
