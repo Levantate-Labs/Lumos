@@ -16,15 +16,27 @@ class NewPostPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MaterialButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            color: Colors.indigo,
             onPressed: () => navController.changeTabIndex(5),
-            child: Text('Create a Post'),
+            child: Text(
+              'Create a Post',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           SizedBox(
             height: 30,
           ),
           MaterialButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            color: Colors.indigo,
             onPressed: () => navController.changeTabIndex(6),
-            child: Text('Create an Event'),
+            child: Text(
+              'Create an Event',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),

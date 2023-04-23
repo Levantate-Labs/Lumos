@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lumos_app/controller/test_controller.dart';
 
 class NewPost extends StatelessWidget {
-  const NewPost({super.key});
+  NewPost({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: const Text("New Post"),
+    return Column(
+      children: [
+        Row(
+          children: [],
+        )
+      ],
     );
   }
 }
