@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lumos_app/controller/controller.dart';
-import 'package:lumos_app/dto/EventsDTO.dart';
+import 'package:lumos_app/controller/nav_controller.dart';
 
 import '../components/feeds_card.dart';
 import '../components/highlight_card.dart';
 import '../navigation/navbar.dart';
 
 class FeedsPage extends StatelessWidget {
-  FeedsPage({super.key}) {
-    fetchEvents();
-  }
-
-  void fetchEvents() {
-    Future<List<Events>?> data = Controller().getEvents();
-  }
+  FeedsPage({super.key, required this.nav});
 
   final String imgSrc =
       "https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
@@ -24,6 +17,8 @@ class FeedsPage extends StatelessWidget {
   final String heading = "Heading test";
   final String body =
       "Lorem Ipsum Thenga manga vaazha dksjflkdj hfbfkjdf nbxckjbsdk";
+
+  final NavController nav;
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +77,7 @@ class FeedsPage extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return FeedsCard(
+                    navController: nav,
                     imgSrc: imgSrc,
                     heading: heading,
                     body: body,
