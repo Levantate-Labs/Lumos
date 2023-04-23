@@ -37,7 +37,6 @@ export class CertificateService {
         if(events[0].args) {
             return events[0].args[0];
         }
-
         return "0x";
     }
 

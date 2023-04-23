@@ -29,6 +29,7 @@ model User {
   posts               Post[]
   followers           Follows[] @relation(name: "followers")
   followings          Follows[] @relation(name: "followings")
+  certs               Certs[]
   eventRegistrations  EventRegistrations[]
   eventRegInvites     EventRegInvites[]
 }
@@ -41,8 +42,10 @@ model Post {
   dateOfEvent         DateTime?
   location            String ?
   imageUrl            String?
+  certAddress         String?
   tags                String[]
   eventRegistrations  EventRegistrations[]
+  certs               Certs[]
   createdBy           User  @relation(fields: [createdById], references: [ID])
   createdById         String
   createdAt           DateTime  @default(now())
@@ -78,4 +81,14 @@ model EventRegInvites {
   invitee             User    @relation(fields: [inviteeId], references: [ID])
   inviteeId           String
   approved            Boolean @default(false)
+}
+
+model Certs {
+  ID                  String  @id
+  token               String
+  tokenId             String
+  user                User    @relation(fields: [userId], references: [ID])
+  userId              String
+  event               Post    @relation(fields: [eventId], references: [ID])
+  eventId             String
 }
