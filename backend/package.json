@@ -22,8 +22,8 @@
     "yn": "^3.1.1"
   },
   "scripts": {
-    "build": "npm install && npx tsc",
-    "start": "npm run build && node dist/index.js"
+    "build": "npx tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
