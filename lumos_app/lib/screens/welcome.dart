@@ -27,10 +27,10 @@ class WelcomePage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
   // sign user in method
-  void signUserIn() {
+  void signUserIn()async {
     if (_formKey.currentState!.validate()) {
       Controller controller = new Controller();
-      controller.login(passwordController.text,usernameController.text);
+      await controller.login(passwordController.text,usernameController.text);
     } else {
       print('not valid');
     }

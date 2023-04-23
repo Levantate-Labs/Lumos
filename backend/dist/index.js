@@ -16,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
 const config_1 = require("./config");
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
-const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
+const postRoutes_1 = __importDefault(require("./routes/postRoutes"));
 const router = (0, express_1.default)();
 const StartServer = () => __awaiter(void 0, void 0, void 0, function* () {
     router.use(express_1.default.urlencoded({ extended: true }));
@@ -33,7 +33,7 @@ const StartServer = () => __awaiter(void 0, void 0, void 0, function* () {
     });
     // Routes to use
     router.use(`/user`, userRoutes_1.default);
-    router.use(`/auth`, authRoutes_1.default);
+    router.use(`/post`, postRoutes_1.default);
     /** Healthcheck */
     router.get('/healthcheck', (req, res, next) => res.status(200).json({ message: 'Still Alive!' }));
     http_1.default.createServer(router).listen(config_1.config.server.port, () => console.log(`Server is running on port ${config_1.config.server.port}`));
