@@ -15,7 +15,6 @@ dependencies:
   drop_shadow: ^0.0.1+4
   http: ^0.13.5
   get_storage: ^2.1.1
-  
 dev_dependencies:
   flutter_test:
     sdk: flutter
