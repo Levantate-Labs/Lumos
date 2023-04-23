@@ -8,11 +8,11 @@ import 'package:lumos_app/screens/feeds.dart';
 
 class Controller extends GetxController {
   final storage = new GetStorage();
+  final String baseUrl = "https://lumos-production.up.railway.app";
 
   Future<String?> login(String pass, String userId) async {
     // Make the API request
-    final response = await http.post(
-        Uri.parse('http://localhost:5000/user/login'),
+    final response = await http.post(Uri.parse('$baseUrl/user/login'),
         body: {'passwordHash': pass, 'ID': userId});
 
     if (response.statusCode == 200) {
