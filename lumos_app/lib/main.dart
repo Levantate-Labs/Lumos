@@ -7,6 +7,7 @@ import 'package:lumos_app/screens/feeds.dart';
 import 'package:lumos_app/screens/welcome.dart';
 
 import 'components/AuthTiles.dart';
+import 'components/navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: LoginPage(),
+      home: NavigationPage(),
     );
   }
 }

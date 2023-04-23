@@ -100,7 +100,7 @@ class WelcomePage extends StatelessWidget {
                                   const SizedBox(height: 10),
 
                                   MyTextField(
-                                    controller: usernameController,
+                                    controller: passwordController,
                                     hintText: 'Password',
                                     obscureText: true,
                                   ),

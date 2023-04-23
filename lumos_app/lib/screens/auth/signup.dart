@@ -6,6 +6,7 @@ import 'package:lumos_app/components/navbar.dart';
 import 'package:lumos_app/screens/auth/login.dart';
 
 import 'package:lumos_app/components/AuthInputs.dart';
+import 'package:lumos_app/screens/welcome.dart';
 
 class Signup extends StatelessWidget {
   Signup({super.key});
@@ -148,7 +149,7 @@ class Signup extends StatelessWidget {
                                     MyButtonAgree(
                                       text: "Agree and Continue",
                                       onTap: () {
-                                        Get.to(() => LoginPage());
+                                        Get.to(() => WelcomePage());
                                       },
                                     ),
                                   ],

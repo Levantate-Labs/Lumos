@@ -84,7 +84,6 @@ class FeedsPage extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: NavBar(),
       ),
     );
   }
