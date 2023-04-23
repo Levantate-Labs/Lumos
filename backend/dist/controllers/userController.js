@@ -26,7 +26,7 @@ const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* ()
     try {
         const params = req.body;
         let serviceResponse = yield service_manager_1.userService.loginUser(params);
-        res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
+        res.status(serviceResponse.response.statusCode).send(serviceResponse.user ? serviceResponse.user : serviceResponse.response.statusCode);
     }
     catch (error) {
         res.status(500).send({ error: error.message });
