@@ -20,7 +20,7 @@
     "yn": "^3.1.1"
   },
   "scripts": {
-    "build": "npx tsc",
+    "build": "npm install && npx tsc",
     "start": "npm run build && node dist/index.js"
   },
   "keywords": [],
