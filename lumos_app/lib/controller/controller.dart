@@ -52,7 +52,10 @@ class Controller extends GetxController {
 
     if (response.statusCode == 200) {
       List<Event> events = eventsFromJson(response.body).events;
-      return events;
+      var jsonResponse = json.decode(response.body);
+      print(jsonResponse['events']);
+      print(jsonResponse);
+      return jsonResponse['events'];
     } else {
       print(response.body);
     }
