@@ -9,7 +9,7 @@ import 'package:lumos_app/components/AuthInputs.dart';
 import 'package:lumos_app/components/AuthTiles.dart';
 import 'package:lumos_app/screens/auth/signup.dart';
 
-import '../components/navbar.dart';
+import '../navigation/navbar.dart';
 
 class WelcomePage extends StatelessWidget {
   WelcomePage({super.key});
