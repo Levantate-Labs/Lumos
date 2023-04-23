@@ -19,18 +19,18 @@ class WelcomePage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  double _sigmaX = 5; 
-  double _sigmaY = 5; 
+  double _sigmaX = 5;
+  double _sigmaY = 5;
   double _opacity = 0.2;
   double _width = 350;
   double _height = 300;
   final _formKey = GlobalKey<FormState>();
 
   // sign user in method
-  void signUserIn()async {
+  void signUserIn() async {
     if (_formKey.currentState!.validate()) {
       Controller controller = new Controller();
-      await controller.login(passwordController.text,usernameController.text);
+      await controller.login(passwordController.text, usernameController.text);
     } else {
       print('not valid');
     }
@@ -44,7 +44,6 @@ class WelcomePage extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Stack(
-            
             alignment: Alignment.center,
             children: [
               Image.network(
@@ -71,11 +70,6 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.018),
-                  const Text("Hi !",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold)),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   ClipRect(
                     child: BackdropFilter(
@@ -98,7 +92,16 @@ class WelcomePage extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const SizedBox(height: 30),
+                                  Text(
+                                    "Login",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
                                   // username textfield
                                   MyTextField(
                                     controller: usernameController,
