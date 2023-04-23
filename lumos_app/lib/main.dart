@@ -22,15 +22,16 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Lumos',
       theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo),
         useMaterial3: true,
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Color.fromARGB(255, 220, 220, 220),
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
       ),
-      home: FeedsPage(),
+      home: NavigationPage(),
     );
   }
 }

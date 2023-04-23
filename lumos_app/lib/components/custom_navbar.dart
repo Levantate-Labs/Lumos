@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lumos_app/controller/nav_controller.dart';
 
 class CustomNavBar extends StatelessWidget {
-  const CustomNavBar({
+  CustomNavBar({
     super.key,
   });
+
+  final NavController navController = NavController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,29 +25,39 @@ class CustomNavBar extends StatelessWidget {
               children: [
                 MaterialButton(
                   minWidth: 40,
-                  onPressed: () => {},
+                  onPressed: () => navController.changeTabIndex(0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.home,
-                        color: Colors.blue,
+                      FaIcon(
+                        FontAwesomeIcons.house,
+                        color: Colors.indigo[900],
+                        size: 25,
                       ),
-                      Text("Feeds"),
+                      Text(
+                        "Feeds",
+                        style: TextStyle(color: Colors.indigo[900]),
+                      ),
                     ],
                   ),
                 ),
                 MaterialButton(
                   minWidth: 40,
-                  onPressed: () => {},
+                  onPressed: () => navController.changeTabIndex(1),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.home,
-                        color: Colors.blue,
+                    children: const [
+                      FaIcon(
+                        FontAwesomeIcons.magnifyingGlass,
+                        color: Colors.white70,
+                        size: 25,
                       ),
-                      Text("Feeds"),
+                      Text(
+                        "Explore",
+                        style: TextStyle(
+                          color: Colors.white70,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -54,29 +68,37 @@ class CustomNavBar extends StatelessWidget {
               children: [
                 MaterialButton(
                   minWidth: 40,
-                  onPressed: () => {},
+                  onPressed: () => navController.changeTabIndex(2),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.home,
-                        color: Colors.blue,
+                    children: const [
+                      FaIcon(
+                        FontAwesomeIcons.fileContract,
+                        color: Colors.white70,
+                        size: 25,
                       ),
-                      Text("Feeds"),
+                      Text(
+                        "Docs",
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     ],
                   ),
                 ),
                 MaterialButton(
                   minWidth: 40,
-                  onPressed: () => {},
+                  onPressed: () => navController.changeTabIndex(3),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.home,
-                        color: Colors.blue,
+                    children: const [
+                      FaIcon(
+                        FontAwesomeIcons.userAstronaut,
+                        color: Colors.white70,
+                        size: 25,
                       ),
-                      Text("Feeds"),
+                      Text(
+                        "Profile",
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     ],
                   ),
                 ),

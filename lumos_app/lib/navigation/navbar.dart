@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lumos_app/components/custom_navbar.dart';
 import 'package:lumos_app/controller/nav_controller.dart';
+import 'package:lumos_app/screens/certificates_page.dart';
+import 'package:lumos_app/screens/explore_page.dart';
 import 'package:lumos_app/screens/feeds.dart';
+import 'package:lumos_app/screens/new_post_page.dart';
 import 'package:lumos_app/screens/profile/profile.dart';
 import 'package:lumos_app/screens/welcome.dart';
 
@@ -11,6 +14,8 @@ class NavigationPage extends StatelessWidget {
       color: Colors.white.withOpacity(0.5),
       fontWeight: FontWeight.w500,
       fontSize: 12);
+
+  var currentIndex = 0;
 
   // final TextStyle selectedLabelStyle = const TextStyle(
   //     color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12);
@@ -76,22 +81,30 @@ class NavigationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final NavController navController =
         Get.put(NavController(), permanent: false);
+
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: CustomNavBar(),
         body: Obx(
           () => IndexedStack(
             index: navController.tabIndex.value,
-            children: const [
+            children: [
               FeedsPage(),
+              ExplorePage(),
+              NewPostPage(),
+              CertificatePage(),
               ProfilePage(),
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => {},
-          child: Icon(Icons.add),
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Colors.indigo,
+          shape: const CircleBorder(),
+          onPressed: () => navController.changeTabIndex(4),
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),

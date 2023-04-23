@@ -20,13 +20,16 @@ class HighlightCard extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0),
       child: Stack(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image(
-              image: NetworkImage(imgSrc),
-              fit: BoxFit.fill,
-              width: 390,
-              height: 250,
+          Card(
+            elevation: 7,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image(
+                image: NetworkImage(imgSrc),
+                fit: BoxFit.fill,
+                width: 390,
+                height: 250,
+              ),
             ),
           ),
           Container(
@@ -55,7 +58,7 @@ class HighlightCard extends StatelessWidget {
                     Text(
                       username,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w500,
                           fontSize: 12,
                           color: Colors.white),
                     ),
@@ -67,8 +70,8 @@ class HighlightCard extends StatelessWidget {
                 Text(
                   headline,
                   style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
                       color: Colors.white),
                 ),
               ],
