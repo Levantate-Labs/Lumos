@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lumos_app/controller/controller.dart';
 import 'package:lumos_app/controller/nav_controller.dart';
+import 'package:lumos_app/models/posts.dart';
 
 import '../components/feeds_card.dart';
 import '../components/highlight_card.dart';
@@ -19,11 +20,20 @@ class FeedsPage extends StatefulWidget {
 }
 
 class _FeedsPageState extends State<FeedsPage> {
+
+  late List<Events>? _events = [];
+
   @override
   void initState() {
     super.initState();
-    var users = Controller().getEvents();
+    _getData();
   }
+
+  void _getData() async {
+    _events = (await Controller().getEvents());
+    Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
+  }
+
 
   final String imgSrc =
       "https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
@@ -94,14 +104,14 @@ class _FeedsPageState extends State<FeedsPage> {
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: 10,
+                itemCount: _events?.length,
                 itemBuilder: (BuildContext context, int index) {
                   return FeedsCard(
                     navController: widget.nav,
-                    imgSrc: imgSrc,
-                    heading: heading,
+                    imgSrc: _events![index].imageUrl,
+                    heading: _events![index].name,
                     body: body,
-                    username: username,
+                    username: _events![index].createdById,
                     profileIcon: profileIcon,
                     like: 0,
                   );

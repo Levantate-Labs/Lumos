@@ -40,6 +40,7 @@ model Post {
   name                String?
   dateOfEvent         DateTime?
   location            String ?
+  imageUrl            String?
   tags                String[]
   eventRegistrations  EventRegistrations[]
   createdBy           User  @relation(fields: [createdById], references: [ID])
