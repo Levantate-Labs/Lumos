@@ -14,7 +14,7 @@ const register = async(req: Request, res: Response, next: NextFunction) => {
         res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
 
     } catch(error: any) {
-        res.status(500).send({ error: "Internal Server Error" });
+        res.status(500).send({ error: error.message });
     }
 }
 
@@ -27,7 +27,7 @@ const login = async(req: Request, res: Response, next: NextFunction) => {
         res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
     
     } catch(error: any) {
-        res.status(500).send({ error: "Internal Server Error" });
+        res.status(500).send({ error: error.message });
     }
 
 }
