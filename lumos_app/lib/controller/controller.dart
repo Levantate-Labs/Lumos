@@ -12,6 +12,7 @@ import '../models/posts.dart';
 class Controller extends GetxController {
   final storage = new GetStorage();
   final String baseUrl = "https://lumos-production.up.railway.app";
+  final userData = "".obs;
 
   Future<String?> login(String pass, String userId) async {
     final response = await http.post(Uri.parse('$baseUrl/user/login'),
@@ -19,7 +20,7 @@ class Controller extends GetxController {
 
     if (response.statusCode == 200) {
       storage.write('user', response.body);
-      Get.to(() => NavigationPage());
+      Get.off(() => NavigationPage());
     } else {
       print(response.body.toString());
       return response.body;

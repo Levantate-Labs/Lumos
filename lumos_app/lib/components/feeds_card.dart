@@ -96,7 +96,9 @@ class FeedsCard extends StatelessWidget {
                           ),
                           const SizedBox(width: 200),
                           OutlinedButton(
-                            onPressed: () => navController.changeTabIndex(7),
+                            onPressed: () => {
+                              navController.changeTabIndex(7),
+                            },
                             style: OutlinedButton.styleFrom(
                               side: const BorderSide(
                                   width: 1.0, color: Colors.blue),
