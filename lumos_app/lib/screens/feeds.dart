@@ -108,7 +108,7 @@ class _FeedsPageState extends State<FeedsPage> {
                 itemBuilder: (BuildContext context, int index) {
                   return FeedsCard(
                     navController: widget.nav,
-                    imgSrc: _events![index].imageUrl,
+                    imgSrc:_events![index].imageUrl,
                     heading: _events![index].name,
                     body: body,
                     username: _events![index].createdById,

@@ -11,6 +11,7 @@ import '../models/posts.dart';
 
 class Controller extends GetxController {
   final storage = new GetStorage();
+  late var user = {};
   final String baseUrl = "https://lumos-production.up.railway.app";
   final userData = "".obs;
 
@@ -29,7 +30,7 @@ class Controller extends GetxController {
 
   Map<String, dynamic>? getUser() {
     final user = storage.read('user');
-
+    print(user.toString());
     // Return null if the user data doesn't exist
     if (user == null) {
       return null;
