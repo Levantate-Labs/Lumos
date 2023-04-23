@@ -18,49 +18,84 @@ class FeedsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blue,
-            offset: Offset(
-              3.0,
-              3.0,
-            ),
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          Row(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            border: Border.all(color: Colors.black38),
+            color: Colors.white,
+            boxShadow: [
+              const BoxShadow(
+                color: Colors.black12,
+              )
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image(
+                      image: NetworkImage(profileIcon),
+                      height: 25,
+                      width: 25,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    username,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
               ClipRRect(
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(8),
                 child: Image(
-                  image: NetworkImage(profileIcon),
-                  height: 25,
-                  width: 25,
+                  image: NetworkImage(imgSrc),
+                  height: 250,
                   fit: BoxFit.fill,
                 ),
               ),
               const SizedBox(
-                width: 5,
+                height: 10,
               ),
-              Text(
-                username,
-                style: const TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                    color: Colors.white),
-              ),
+              Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      heading,
+                      textAlign: TextAlign.left,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      body,
+                      textAlign: TextAlign.left,
+                      style: const TextStyle(
+                        fontSize: 14,
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
-          Image(
-            image: NetworkImage(imgSrc),
-            width: MediaQuery.of(context).size.width * 0.9,
-          ),
-        ],
+        ),
       ),
     );
   }

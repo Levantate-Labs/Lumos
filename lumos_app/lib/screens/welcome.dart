@@ -8,8 +8,9 @@ import 'package:lumos_app/components/AuthButtons.dart';
 import 'package:lumos_app/components/AuthInputs.dart';
 import 'package:lumos_app/components/AuthTiles.dart';
 import 'package:lumos_app/screens/auth/signup.dart';
+import 'package:lumos_app/controller/controller.dart';
 
-import '../components/navbar.dart';
+import '../navigation/navbar.dart';
 
 class WelcomePage extends StatelessWidget {
   WelcomePage({super.key});
@@ -18,15 +19,22 @@ class WelcomePage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  double _sigmaX = 5; // from 0-10
-  double _sigmaY = 5; // from 0-10
+  double _sigmaX = 5; 
+  double _sigmaY = 5; 
   double _opacity = 0.2;
   double _width = 350;
   double _height = 300;
   final _formKey = GlobalKey<FormState>();
 
   // sign user in method
-  void signUserIn() {}
+  void signUserIn()async {
+    if (_formKey.currentState!.validate()) {
+      Controller controller = new Controller();
+      await controller.login(passwordController.text,usernameController.text);
+    } else {
+      print('not valid');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +44,7 @@ class WelcomePage extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Stack(
+            
             alignment: Alignment.center,
             children: [
               Image.network(
@@ -100,7 +109,7 @@ class WelcomePage extends StatelessWidget {
                                   const SizedBox(height: 10),
 
                                   MyTextField(
-                                    controller: usernameController,
+                                    controller: passwordController,
                                     hintText: 'Password',
                                     obscureText: true,
                                   ),
@@ -122,51 +131,6 @@ class WelcomePage extends StatelessWidget {
                                   ),
 
                                   const SizedBox(height: 10),
-
-                                  // or continue with
-                                  // Row(
-                                  //   children: [
-                                  //     Expanded(
-                                  //       child: Divider(
-                                  //         thickness: 0.5,
-                                  //         color: Colors.grey[400],
-                                  //       ),
-                                  //     ),
-                                  //     const Padding(
-                                  //       padding: EdgeInsets.symmetric(
-                                  //           horizontal: 10.0),
-                                  //       child: Text(
-                                  //         'Or',
-                                  //         style: TextStyle(
-                                  //             color: Colors.white, fontSize: 16),
-                                  //       ),
-                                  //     ),
-                                  //     Expanded(
-                                  //       child: Divider(
-                                  //         thickness: 0.5,
-                                  //         color: Colors.grey[400],
-                                  //       ),
-                                  //     ),
-                                  //   ],
-                                  // ),
-
-                                  // const SizedBox(height: 10),
-
-                                  // google + apple sign in buttons
-                                  // Padding(
-                                  //   padding: const EdgeInsets.all(8.0),
-                                  //   child: Column(
-                                  //       mainAxisSize: MainAxisSize.min,
-                                  //       mainAxisAlignment:
-                                  //           MainAxisAlignment.center,
-                                  //       children: const [
-                                  //         // google button
-
-                                  //         SizedBox(height: 10),
-
-                                  //         // apple button
-                                  //       ]),
-                                  // ),
 
                                   const SizedBox(height: 10),
 

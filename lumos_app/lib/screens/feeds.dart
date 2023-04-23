@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components/feeds_card.dart';
 import '../components/highlight_card.dart';
-import '../components/navbar.dart';
+import '../navigation/navbar.dart';
 
 class FeedsPage extends StatelessWidget {
   const FeedsPage({super.key});
@@ -43,18 +43,11 @@ class FeedsPage extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
-                    return Row(
-                      children: [
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        HighlightCard(
-                          imgSrc: imgSrc,
-                          headline: headline,
-                          username: username,
-                          profileIcon: profileIcon,
-                        ),
-                      ],
+                    return HighlightCard(
+                      imgSrc: imgSrc,
+                      headline: headline,
+                      username: username,
+                      profileIcon: profileIcon,
                     );
                   },
                 ),
@@ -91,7 +84,6 @@ class FeedsPage extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: NavBar(),
       ),
     );
   }

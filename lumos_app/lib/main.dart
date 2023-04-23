@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lumos_app/screens/Onboarding/Onboarding1.dart';
+import 'package:lumos_app/screens/auth/login.dart';
+import 'package:lumos_app/screens/auth/signup.dart';
 import 'package:lumos_app/screens/feeds.dart';
 import 'package:lumos_app/screens/welcome.dart';
 
 import 'components/AuthTiles.dart';
+import 'navigation/navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: FeedsPage(),
+      home: NavigationPage(),
     );
   }
 }
