@@ -70,6 +70,7 @@ class RegisterEventPage extends StatelessWidget {
                   ),
                   Obx(
                     () => (FloatingActionButton.extended(
+                      heroTag: "btn1",
                       onPressed: () => reg.toggleReg(),
                       label: reg.attend.value == 0
                           ? Text('Register')

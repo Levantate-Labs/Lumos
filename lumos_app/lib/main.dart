@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color.fromARGB(255, 220, 220, 220),
         brightness: Brightness.light,
       ),
-      home: NavigationPage(),
+      home: WelcomePage(),
     );
   }
 }

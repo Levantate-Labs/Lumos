@@ -15,16 +15,16 @@ class NewPostPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FloatingActionButton.extended(
+          MaterialButton(
             onPressed: () => navController.changeTabIndex(5),
-            label: Text('Create a Post'),
+            child: Text('Create a Post'),
           ),
           SizedBox(
             height: 30,
           ),
-          FloatingActionButton.extended(
+          MaterialButton(
             onPressed: () => navController.changeTabIndex(6),
-            label: Text('Create an Event'),
+            child: Text('Create an Event'),
           ),
         ],
       ),
