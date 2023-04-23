@@ -30,12 +30,16 @@ model User {
   followers           Follows[] @relation(name: "followers")
   followings          Follows[] @relation(name: "followings")
   eventRegistrations  EventRegistrations[]
+  eventRegInvites     EventRegInvites[]
 }
 
 model Post {
   ID                  String  @id
   content             String
   postType            POST_TYPE
+  name                String?
+  dateOfEvent         DateTime?
+  location            String ?
   tags                String[]
   eventRegistrations  EventRegistrations[]
   createdBy           User  @relation(fields: [createdById], references: [ID])
@@ -51,18 +55,26 @@ model Follows {
   followingId         String
 }
 
-model Event {
-  ID                  String   @id
-  name                String
-  dateOfEvent         DateTime 
-}
 
 model EventRegistrations {
   ID                  String  @id
+  team                String
+  teamLeader          String
   post                Post    @relation(fields: [postId], references: [ID])
   postId              String
   user                User    @relation(fields: [userId], references: [ID])
   userId              String
+  approved            Boolean @default(false)
+  RSVP                Boolean @default(false)
+  checkedIn           Boolean @default(false)
   createdAt           DateTime  @default(now())
   updatedAt           DateTime @updatedAt
+}
+
+model EventRegInvites {
+  ID                  String  @id
+  eventRegistrationId String
+  invitee             User    @relation(fields: [inviteeId], references: [ID])
+  inviteeId           String
+  approved            Boolean @default(false)
 }
