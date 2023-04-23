@@ -92,9 +92,9 @@ class NavigationPage extends StatelessWidget {
           () => IndexedStack(
             index: navController.tabIndex.value,
             children: [
-              FeedsPage(),
-              ExplorePage(),
-              CertificatePage(),
+              const FeedsPage(),
+              const ExplorePage(),
+              const CertificatePage(),
               ProfilePage(),
               NewPostPage(),
               NewPost(),

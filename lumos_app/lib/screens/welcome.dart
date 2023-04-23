@@ -6,14 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lumos_app/components/AuthButtons.dart';
 import 'package:lumos_app/components/AuthInputs.dart';
-import 'package:lumos_app/components/AuthTiles.dart';
 import 'package:lumos_app/screens/auth/signup.dart';
 import 'package:lumos_app/controller/controller.dart';
 
-import '../navigation/navbar.dart';
-
+// ignore: must_be_immutable
 class WelcomePage extends StatelessWidget {
-  WelcomePage({super.key});
+  WelcomePage({super.key}) {
+    Controller controller = Controller();
+    controller.getUser();
+  }
 
   // text editing controllers
   final usernameController = TextEditingController();
