@@ -43,7 +43,7 @@ const events = async(req: Request, res: Response, next: NextFunction) => {
     try {
 
         let serviceResponse = await postService.events();
-        res.status(200).send({ events: serviceResponse });
+        res.status(200).send(serviceResponse);
 
     } catch(error: any) {
         res.status(500).send({ error: "Internal Server Error" });
