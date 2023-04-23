@@ -28,7 +28,7 @@ class FeedsPage extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 alignment: Alignment.centerLeft,
                 child: const Text(
-                  "Highlights",
+                  " Highlights",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
@@ -59,7 +59,7 @@ class FeedsPage extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 alignment: Alignment.centerLeft,
                 child: const Text(
-                  "Recommended For You",
+                  " Recommended For You",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
@@ -74,11 +74,13 @@ class FeedsPage extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return FeedsCard(
-                      imgSrc: imgSrc,
-                      heading: heading,
-                      body: body,
-                      username: username,
-                      profileIcon: profileIcon);
+                    imgSrc: imgSrc,
+                    heading: heading,
+                    body: body,
+                    username: username,
+                    profileIcon: profileIcon,
+                    like: 0,
+                  );
                 },
               ),
             ],

@@ -57,7 +57,7 @@ class Signup extends StatelessWidget {
                       Navigator.pop(context);
                     },
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.26),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.16),
                   const Text("Sign Up",
                       style: TextStyle(
                           color: Colors.white,
@@ -76,7 +76,7 @@ class Signup extends StatelessWidget {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(30))),
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.49,
+                        height: MediaQuery.of(context).size.height * 0.6,
                         child: Form(
                           key: _formKey,
                           child: Center(

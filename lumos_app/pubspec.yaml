@@ -15,6 +15,8 @@ dependencies:
   drop_shadow: ^0.0.1+4
   http: ^0.13.5
   get_storage: ^2.1.1
+  font_awesome_flutter: ^10.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

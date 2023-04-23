@@ -17,10 +17,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Lumos',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo),
+        useMaterial3: true,
+        scaffoldBackgroundColor: Color.fromARGB(255, 220, 220, 220),
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
+        useMaterial3: true,
         brightness: Brightness.dark,
       ),
       home: WelcomePage(),
