@@ -89,11 +89,11 @@ class NavigationPage extends StatelessWidget {
         body: Obx(
           () => IndexedStack(
             index: navController.tabIndex.value,
-            children: const [
-              FeedsPage(),
-              ExplorePage(),
-              NewPostPage(),
-              CertificatePage(),
+            children: [
+              const FeedsPage(),
+              const ExplorePage(),
+              const NewPostPage(),
+              const CertificatePage(),
               ProfilePage(),
             ],
           ),
