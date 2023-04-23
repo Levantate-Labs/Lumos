@@ -8,6 +8,7 @@ import 'package:lumos_app/components/AuthButtons.dart';
 import 'package:lumos_app/components/AuthInputs.dart';
 import 'package:lumos_app/components/AuthTiles.dart';
 import 'package:lumos_app/screens/auth/signup.dart';
+import 'package:lumos_app/controller/controller.dart';
 
 import '../navigation/navbar.dart';
 
@@ -18,15 +19,22 @@ class WelcomePage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  double _sigmaX = 5; // from 0-10
-  double _sigmaY = 5; // from 0-10
+  double _sigmaX = 5; 
+  double _sigmaY = 5; 
   double _opacity = 0.2;
   double _width = 350;
   double _height = 300;
   final _formKey = GlobalKey<FormState>();
 
   // sign user in method
-  void signUserIn() {}
+  void signUserIn()async {
+    if (_formKey.currentState!.validate()) {
+      Controller controller = new Controller();
+      await controller.login(passwordController.text,usernameController.text);
+    } else {
+      print('not valid');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +44,7 @@ class WelcomePage extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Stack(
+            
             alignment: Alignment.center,
             children: [
               Image.network(

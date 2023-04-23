@@ -4,6 +4,7 @@ import 'package:lumos_app/components/custom_navbar.dart';
 import 'package:lumos_app/controller/nav_controller.dart';
 import 'package:lumos_app/screens/feeds.dart';
 import 'package:lumos_app/screens/profile/profile.dart';
+import 'package:lumos_app/screens/welcome.dart';
 
 class NavigationPage extends StatelessWidget {
   final TextStyle unselectedLabelStyle = TextStyle(
