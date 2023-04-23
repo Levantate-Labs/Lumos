@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lumos_app/controller/controller.dart';
+import 'package:lumos_app/dto/EventsDTO.dart';
 
 import '../components/feeds_card.dart';
 import '../components/highlight_card.dart';
 import '../navigation/navbar.dart';
 
 class FeedsPage extends StatelessWidget {
-  const FeedsPage({super.key});
+  FeedsPage({super.key}) {
+    fetchEvents();
+  }
+
+  void fetchEvents() {
+    Future<List<Events>?> data = Controller().getEvents();
+  }
 
   final String imgSrc =
       "https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
