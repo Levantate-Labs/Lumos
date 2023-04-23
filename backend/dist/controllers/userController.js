@@ -29,7 +29,7 @@ const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
     }
     catch (error) {
-        res.status(500).send({ error: "Internal Server Error" });
+        res.status(500).send({ error: error.message });
     }
 });
 const follow = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
