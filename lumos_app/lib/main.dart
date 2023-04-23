@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lumos_app/components/profile_card.dart';
+import 'package:lumos_app/screens/profile/profile_page.dart';
 import 'package:lumos_app/screens/Onboarding/Onboarding1.dart';
 
 import 'package:lumos_app/screens/auth/signup.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         brightness: Brightness.dark,
       ),
-      home: WelcomePage(),
+      home: ProfilePage(),
     );
   }
 }

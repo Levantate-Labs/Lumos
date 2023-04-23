@@ -6,7 +6,7 @@ import 'package:lumos_app/screens/certificates_page.dart';
 import 'package:lumos_app/screens/explore_page.dart';
 import 'package:lumos_app/screens/feeds.dart';
 import 'package:lumos_app/screens/new_post_page.dart';
-import 'package:lumos_app/screens/profile/profile.dart';
+import 'package:lumos_app/screens/profile/profile_page.dart';
 import 'package:lumos_app/screens/welcome.dart';
 
 class NavigationPage extends StatelessWidget {
