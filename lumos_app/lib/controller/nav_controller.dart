@@ -5,6 +5,7 @@ class NavController extends GetxController {
 
   void changeTabIndex(int index) {
     tabIndex.value = index;
+    print(tabIndex);
   }
 
   @override

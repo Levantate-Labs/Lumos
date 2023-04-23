@@ -76,15 +76,16 @@ class NavigationPage extends StatelessWidget {
   //         ),
   //       )));
   // }
+  final NavController navController =
+      Get.put(NavController(), permanent: false);
 
   @override
   Widget build(BuildContext context) {
-    final NavController navController =
-        Get.put(NavController(), permanent: false);
-
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: CustomNavBar(),
+        bottomNavigationBar: CustomNavBar(
+          navController: navController,
+        ),
         body: Obx(
           () => IndexedStack(
             index: navController.tabIndex.value,

@@ -6,10 +6,10 @@ import 'package:lumos_app/controller/nav_controller.dart';
 class CustomNavBar extends StatelessWidget {
   CustomNavBar({
     super.key,
+    required this.navController,
   });
 
-  final NavController navController = NavController();
-
+  final NavController navController;
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
