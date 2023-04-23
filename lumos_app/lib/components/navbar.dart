@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lumos_app/controller/nav_controller.dart';
 import 'package:lumos_app/screens/feeds.dart';
 import 'package:lumos_app/screens/profile/profile.dart';
+import 'package:lumos_app/screens/welcome.dart';
 
 class NavigationPage extends StatelessWidget {
   final TextStyle unselectedLabelStyle = TextStyle(
@@ -67,6 +68,7 @@ class NavigationPage extends StatelessWidget {
       body: Obx(() => IndexedStack(
             index: landingPageController.tabIndex.value,
             children: [
+              WelcomePage(),
               FeedsPage(),
               ProfilePage(),
             ],

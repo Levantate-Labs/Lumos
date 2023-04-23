@@ -107,7 +107,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.5"
-<<<<<<< HEAD
   get_storage:
     dependency: "direct main"
     description:
@@ -116,8 +115,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-=======
->>>>>>> 9864562030d37255a5a1197cd6fa32289ad513a3
   http:
     dependency: "direct main"
     description:

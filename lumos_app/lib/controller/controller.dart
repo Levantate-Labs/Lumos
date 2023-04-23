@@ -1,31 +1,26 @@
-<<<<<<< HEAD
 import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:lumos_app/screens/welcome.dart';
-=======
-import 'dart:html';
+import 'package:lumos_app/screens/feeds.dart';
 
-import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
->>>>>>> 9864562030d37255a5a1197cd6fa32289ad513a3
+ 
 
 class Controller extends GetxController {
   final storage =new  GetStorage();
 
-<<<<<<< HEAD
-  Future<String?> login() async {
+  Future<String?> login(String pass,String userId) async {
     // Make the API request
-    final response = await http.post(Uri.parse('https://example.com/api/login'));
+    final response = await http.post(Uri.parse('http://localhsot.com/user/login'),body: {'passwordHash':pass,'ID':userId});
 
     if (response.statusCode == 200) {
       // Save the user data to storage
       storage.write('user', response.body);
 
       // Redirect to the home screen
-      Get.to(WelcomePage());
+      Get.to(FeedsPage());
     } else {
       // Return the error message
       return response.body;
@@ -49,12 +44,5 @@ class Controller extends GetxController {
     // Delete the user data from storage and redirect to the login screen
     // storage.remove('user');
     Get.offNamed('/login');
-=======
-  void login(String name, String password) {
-    var uri = Uri.parse('http://192.168.43.83:5000/healthcheck');
-    print(
-      http.post(uri, body: {name, password}),
-    );
->>>>>>> 9864562030d37255a5a1197cd6fa32289ad513a3
   }
 }
