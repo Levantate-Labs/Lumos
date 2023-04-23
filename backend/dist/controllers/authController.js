@@ -10,40 +10,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
+const service_manager_1 = require("../services/service-manager");
 const prisma = new client_1.PrismaClient();
 const register = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const { username, password, privateKeyHash } = req.body;
     try {
-        yield prisma.auth.create({
-            data: {
-                ID: username,
-                passwordHash: password,
-                privKeyHash: privateKeyHash
-            }
-        });
-        res.send({ message: "User registered" });
+        const params = req.body;
+        let serviceResponse = yield service_manager_1.userService.registerUser(params);
+        res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
     }
     catch (error) {
-        res.send({ error: "Username already exists" });
+        res.status(500).send({ error: "Internal Server Error" });
     }
 });
 const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const { username, password } = req.body;
-    let auth = yield prisma.auth.findUnique({
-        where: {
-            ID: username
-        }
-    });
-    if (auth) {
-        if (auth.passwordHash == password) {
-            res.status(200).send({ message: "Login successful" });
-        }
-        else {
-            res.status(403).send({ message: "Wrong Password" });
-        }
+    try {
+        const params = req.body;
+        let serviceResponse = yield service_manager_1.userService.loginUser(params);
+        res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
     }
-    else {
-        res.status(403).send({ message: "Username Not Found" });
+    catch (error) {
     }
 });
 exports.default = {
