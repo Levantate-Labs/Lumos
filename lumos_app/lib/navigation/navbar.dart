@@ -9,6 +9,7 @@ import 'package:lumos_app/screens/newPost/new_event.dart';
 import 'package:lumos_app/screens/newPost/new_post.dart';
 import 'package:lumos_app/screens/newPost/new_post_page.dart';
 import 'package:lumos_app/screens/profile/profile_page.dart';
+import 'package:lumos_app/screens/register_event_page.dart';
 import 'package:lumos_app/screens/welcome.dart';
 
 class NavigationPage extends StatelessWidget {
@@ -92,13 +93,16 @@ class NavigationPage extends StatelessWidget {
           () => IndexedStack(
             index: navController.tabIndex.value,
             children: [
-              const FeedsPage(),
+              FeedsPage(
+                nav: navController,
+              ),
               const ExplorePage(),
               const CertificatePage(),
               ProfilePage(),
               NewPostPage(),
               NewPost(),
               NewEvent(),
+              RegisterEventPage(),
             ],
           ),
         ),

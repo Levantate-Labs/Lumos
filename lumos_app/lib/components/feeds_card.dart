@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lumos_app/controller/controller.dart';
+import 'package:lumos_app/controller/nav_controller.dart';
 import 'package:lumos_app/controller/test_controller.dart';
 
 class FeedsCard extends StatelessWidget {
-  FeedsCard(
-      {super.key,
-      required this.username,
-      required this.heading,
-      required this.body,
-      required this.profileIcon,
-      required this.imgSrc,
-      required this.like});
+  FeedsCard({
+    super.key,
+    required this.username,
+    required this.heading,
+    required this.body,
+    required this.profileIcon,
+    required this.imgSrc,
+    required this.like,
+    required this.navController,
+  });
 
   final String imgSrc;
   final String heading;
@@ -20,6 +23,8 @@ class FeedsCard extends StatelessWidget {
   final String profileIcon;
   final String username;
   final int like;
+
+  final NavController navController;
 
   final LikeController c = LikeController();
 
@@ -91,7 +96,7 @@ class FeedsCard extends StatelessWidget {
                           ),
                           const SizedBox(width: 200),
                           OutlinedButton(
-                            onPressed: () => {},
+                            onPressed: () => navController.changeTabIndex(7),
                             style: OutlinedButton.styleFrom(
                               side: const BorderSide(
                                   width: 1.0, color: Colors.blue),
