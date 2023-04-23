@@ -100,3 +100,74 @@ class FeedsCard extends StatelessWidget {
     );
   }
 }
+
+class Post extends StatelessWidget {
+  const Post({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            child: Container(
+              height: 400,
+              width: 350,
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
+              child:Column(
+                children: [
+                  Container(
+                    height: 70,
+                    width: 350,
+                    decoration: BoxDecoration(
+                      color: Colors.white
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 25,
+                          ),
+                          SizedBox(width: 15),
+                          Text(
+                            "Susmitha",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ]
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 230),
+                  Container(
+                    height: 100,
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            IconButton(onPressed: () => {}, icon: const Icon(Icons.thumb_up_sharp)),
+                            SizedBox(width: 200),
+                            OutlinedButton(
+                              onPressed: () => {}, 
+                              child: Text("Register"),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(width: 1.0, color: Colors.blue)
+                              )
+                            )
+                          ]
+                        ),
+                      ],
+                    ),
+                  )
+                ]
+              ),
+            ),
+          )
+        );
+  }
+}
