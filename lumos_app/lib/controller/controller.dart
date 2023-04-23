@@ -1,22 +1,45 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart' as http;
+import 'package:lumos_app/screens/welcome.dart';
 
 class Controller extends GetxController {
-  // var count = 0.obs;
-  // increment() => count++;
+  final storage =new  GetStorage();
 
-  var tabIndex = 0.obs;
+  Future<String?> login() async {
+    // Make the API request
+    final response = await http.post(Uri.parse('https://example.com/api/login'));
 
-  void changeTabIndex(int index) {
-    tabIndex.value = index;
+    if (response.statusCode == 200) {
+      // Save the user data to storage
+      storage.write('user', response.body);
+
+      // Redirect to the home screen
+      Get.to(WelcomePage());
+    } else {
+      // Return the error message
+      return response.body;
+    }
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // Map<String, dynamic>? getUser() {
+  //   // Retrieve the user data from storage
+    // final user = storage.read('user');
 
-  @override
-  void dispose() {
-    super.dispose();
+  //   // Return null if the user data doesn't exist
+  //   if (user == null) {
+  //     return null;
+  //   }
+
+  //   // Parse the user data as JSON and return it
+  //   return jsonDecode(user);
+  // }
+
+  void logout() {
+    // Delete the user data from storage and redirect to the login screen
+    // storage.remove('user');
+    Get.offNamed('/login');
   }
 }
