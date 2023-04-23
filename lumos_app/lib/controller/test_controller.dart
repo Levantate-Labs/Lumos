@@ -18,3 +18,14 @@ class RegController extends GetxController {
     print(attend);
   }
 }
+
+class BookController extends GetxController {
+  // It is mandatory initialize with one value from listType
+  final selected = "some book type".obs;
+
+  var listType;
+
+  void setSelected(String value) {
+    selected.value = value;
+  }
+}
