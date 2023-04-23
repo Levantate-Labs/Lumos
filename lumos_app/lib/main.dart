@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lumos_app/navigation/navbar.dart';
 import 'package:lumos_app/screens/profile/profile_page.dart';
 import 'package:lumos_app/screens/Onboarding/Onboarding1.dart';
 
@@ -25,11 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color.fromARGB(255, 220, 220, 220),
         brightness: Brightness.light,
       ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.dark,
-      ),
-      home: ProfilePage(),
+      home: NavigationPage(),
     );
   }
 }
