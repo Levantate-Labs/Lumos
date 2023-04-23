@@ -12,7 +12,7 @@ class Events {
         required this.name,
         this.dateOfEvent,
         required this.location,
-        required this.imageUrl,
+        this.imageUrl,
         required this.tags,
         required this.createdById,
         required this.createdAt,
@@ -24,7 +24,7 @@ class Events {
     String name;
     dynamic dateOfEvent;
     String location;
-    String imageUrl;
+    dynamic imageUrl;
     List<String> tags;
     String createdById;
     DateTime createdAt;

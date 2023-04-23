@@ -24,7 +24,7 @@ const login = async(req: Request, res: Response, next: NextFunction) => {
         const params: UserSignInParams = req.body;
 
         let serviceResponse = await userService.loginUser(params);
-        res.status(serviceResponse.statusCode).send({ message: serviceResponse.message });
+        res.status(serviceResponse.response.statusCode).send(serviceResponse.user ? serviceResponse.user : serviceResponse.response.statusCode);
     
     } catch(error: any) {
         res.status(500).send({ error: error.message });
