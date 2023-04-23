@@ -13,7 +13,7 @@ class Controller extends GetxController {
 
   Future<String?> login(String pass,String userId) async {
     // Make the API request
-    final response = await http.post(Uri.parse('http://localhsot.com/user/login'),body: {'passwordHash':pass,'ID':userId});
+    final response = await http.post(Uri.parse('http://localhost:5000/user/login'),body: {'passwordHash':pass,'ID':userId});
 
     if (response.statusCode == 200) {
       // Save the user data to storage
