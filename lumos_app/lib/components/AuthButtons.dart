@@ -10,7 +10,7 @@ class MyButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 71, 233, 133),
           borderRadius: BorderRadius.circular(8),
@@ -37,12 +37,12 @@ class MyButtonAgree extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 71, 233, 133),
           borderRadius: BorderRadius.circular(8),
         ),
-        child:  Center(
+        child: Center(
           child: Text(
             text,
             style: const TextStyle(
