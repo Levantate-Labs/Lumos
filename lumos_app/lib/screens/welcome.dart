@@ -83,7 +83,7 @@ class WelcomePage extends StatelessWidget {
                                   .withOpacity(_opacity),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30))),
-                          width: MediaQuery.of(context).size.width * 0.9,
+                          width: MediaQuery.of(context).size.width * 0.95,
                           height: MediaQuery.of(context).size.height * 0.5,
                           child: Form(
                             key: _formKey,
@@ -103,32 +103,41 @@ class WelcomePage extends StatelessWidget {
                                     height: 20,
                                   ),
                                   // username textfield
-                                  MyTextField(
-                                    controller: usernameController,
-                                    hintText: 'Email',
-                                    obscureText: false,
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: MyTextField(
+                                      controller: usernameController,
+                                      hintText: 'Email',
+                                      obscureText: false,
+                                    ),
                                   ),
 
                                   const SizedBox(height: 10),
 
-                                  MyTextField(
-                                    controller: passwordController,
-                                    hintText: 'Password',
-                                    obscureText: true,
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: MyTextField(
+                                      controller: passwordController,
+                                      hintText: 'Password',
+                                      obscureText: true,
+                                    ),
                                   ),
                                   const SizedBox(height: 10),
 
                                   // sign in button
-                                  MyButton(
-                                    onTap: (() {
-                                      if (_formKey.currentState!.validate()) {
-                                        print(_formKey.currentState);
-                                        signUserIn();
-                                      } else {
-                                        Get.to(Signup());
-                                        print('not valid');
-                                      }
-                                    }),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: MyButton(
+                                      onTap: (() {
+                                        if (_formKey.currentState!.validate()) {
+                                          print(_formKey.currentState);
+                                          signUserIn();
+                                        } else {
+                                          Get.to(Signup());
+                                          print('not valid');
+                                        }
+                                      }),
+                                    ),
                                   ),
 
                                   const SizedBox(height: 10),
