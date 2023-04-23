@@ -1,7 +1,8 @@
 import { Prisma, PrismaClient } from "@prisma/client";
+import { IUserService } from "./interfaces";
 import { UserSignInParams, UserRegisterParams, PrismaResponse, FollowParams } from "./types";
 
-export class UserService {
+export class UserService implements IUserService {
 
     prisma: PrismaClient;
 
