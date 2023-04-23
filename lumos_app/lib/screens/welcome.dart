@@ -122,12 +122,10 @@ class WelcomePage extends StatelessWidget {
                                   MyButton(
                                     onTap: (() {
                                       if (_formKey.currentState!.validate()) {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Signup()),
-                                        );
+                                        print(_formKey.currentState);
+                                        signUserIn();
                                       } else {
+                                        Get.to(Signup());
                                         print('not valid');
                                       }
                                     }),
@@ -162,7 +160,7 @@ class WelcomePage extends StatelessWidget {
                                             const SizedBox(width: 4),
                                             TextButton(
                                                 onPressed: () {
-                                                  Get.to(Signup());
+                                                  signUserIn();
                                                 },
                                                 child: Text('Sign Up',
                                                     style: TextStyle(

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lumos_app/components/AuthButtons.dart';
 import 'package:lumos_app/navigation/navbar.dart';
-import 'package:lumos_app/screens/auth/login.dart';
 
 import 'package:lumos_app/components/AuthInputs.dart';
 import 'package:lumos_app/screens/welcome.dart';
