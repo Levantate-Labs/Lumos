@@ -22,10 +22,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Lumos',
       theme: ThemeData(
+        useMaterial3: true,
         primarySwatch: Colors.blue,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
+        useMaterial3: true,
         brightness: Brightness.dark,
       ),
       home: NavigationPage(),

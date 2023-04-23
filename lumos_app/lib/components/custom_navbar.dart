@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomNavBar extends StatefulWidget {
+class CustomNavBar extends StatelessWidget {
   const CustomNavBar({
     super.key,
   });
@@ -12,7 +12,7 @@ class CustomNavBar extends StatefulWidget {
       shape: CircularNotchedRectangle(),
       notchMargin: 10,
       child: Container(
-        height: 60,
+        height: 40,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -24,21 +24,67 @@ class CustomNavBar extends StatefulWidget {
                   onPressed: () => {},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Icon(Icons.home)],
+                    children: [
+                      Icon(
+                        Icons.home,
+                        color: Colors.blue,
+                      ),
+                      Text("Feeds"),
+                    ],
                   ),
                 ),
-                MaterialButton(minWidth: 40, onPressed: () {}),
+                MaterialButton(
+                  minWidth: 40,
+                  onPressed: () => {},
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.home,
+                        color: Colors.blue,
+                      ),
+                      Text("Feeds"),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                MaterialButton(
+                  minWidth: 40,
+                  onPressed: () => {},
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.home,
+                        color: Colors.blue,
+                      ),
+                      Text("Feeds"),
+                    ],
+                  ),
+                ),
+                MaterialButton(
+                  minWidth: 40,
+                  onPressed: () => {},
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.home,
+                        color: Colors.blue,
+                      ),
+                      Text("Feeds"),
+                    ],
+                  ),
+                ),
               ],
             )
           ],
         ),
       ),
     );
-  }
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
   }
 }
