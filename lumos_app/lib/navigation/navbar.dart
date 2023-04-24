@@ -103,7 +103,7 @@ class NavigationPage extends StatelessWidget {
               NewPostPage(),
               NewPost(),
               NewEvent(),
-              RegisterEventPage(),
+              RegisterEventPage(nav: navController),
             ],
           ),
         ),

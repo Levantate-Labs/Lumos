@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:lumos_app/controller/controller.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   ProfilePage({
     super.key,
-  });
+  }) {
+    print(Controller().getEvents());
+  }
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   String profileIcon =
       "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200";
 
-  String username = "Akhil Vaazha";
-  String subtext = "CEO, India";
-  String useremail = "akhilmass@monster.com";
-  String githubUrl = "github.com/akhil-mass";
+  String username = "Jhon Doe";
+
+  String subtext = "Student | CCE";
+
+  String useremail = "JhonDoe@cce.edu.in";
+
+  String githubUrl = "github.com/JhonDoe";
 
   @override
   Widget build(BuildContext context) {

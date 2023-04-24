@@ -20,7 +20,6 @@ class FeedsPage extends StatefulWidget {
 }
 
 class _FeedsPageState extends State<FeedsPage> {
-
   late List<Events>? _events = [];
 
   @override
@@ -34,13 +33,12 @@ class _FeedsPageState extends State<FeedsPage> {
     Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
   }
 
-
   final String imgSrc =
       "https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
 
   final String headline = "Test Headline";
 
-  final String username = "Akhil Main";
+  final String username = "Susmitha";
 
   final String profileIcon =
       "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200";
@@ -48,7 +46,7 @@ class _FeedsPageState extends State<FeedsPage> {
   final String heading = "Heading test";
 
   final String body =
-      "Lorem Ipsum Thenga manga vaazha dksjflkdj hfbfkjdf nbxckjbsdk";
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
 
   @override
   Widget build(BuildContext context) {
@@ -74,12 +72,12 @@ class _FeedsPageState extends State<FeedsPage> {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: _events?.length,
                   itemBuilder: (BuildContext context, int index) {
                     return HighlightCard(
-                      imgSrc: imgSrc,
-                      headline: headline,
-                      username: username,
+                      imgSrc: _events![index].imageUrl,
+                      headline: _events![index].name,
+                      username: _events![index].createdById,
                       profileIcon: profileIcon,
                     );
                   },
@@ -108,12 +106,13 @@ class _FeedsPageState extends State<FeedsPage> {
                 itemBuilder: (BuildContext context, int index) {
                   return FeedsCard(
                     navController: widget.nav,
-                    imgSrc:_events![index].imageUrl,
+                    imgSrc: _events![index].imageUrl,
                     heading: _events![index].name,
-                    body: body,
+                    body: _events![index].content,
                     username: _events![index].createdById,
                     profileIcon: profileIcon,
                     like: 0,
+                    index: index,
                   );
                 },
               ),

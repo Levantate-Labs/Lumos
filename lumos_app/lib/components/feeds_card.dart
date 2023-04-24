@@ -15,6 +15,7 @@ class FeedsCard extends StatelessWidget {
     required this.imgSrc,
     required this.like,
     required this.navController,
+    required this.index,
   });
 
   final String imgSrc;
@@ -23,6 +24,7 @@ class FeedsCard extends StatelessWidget {
   final String profileIcon;
   final String username;
   final int like;
+  final int index;
 
   final NavController navController;
 
@@ -98,6 +100,7 @@ class FeedsCard extends StatelessWidget {
                           OutlinedButton(
                             onPressed: () => {
                               navController.changeTabIndex(7),
+                              navController.changeCardIndex(index),
                             },
                             style: OutlinedButton.styleFrom(
                               side: const BorderSide(

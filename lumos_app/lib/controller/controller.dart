@@ -17,7 +17,7 @@ class Controller extends GetxController {
   final storage = GetStorage();
   final String baseUrl = "https://lumos-production.up.railway.app";
 
-  var eventID = 101.obs;
+  var eventID = 0.obs;
   final tFEventName = ''.obs;
   final tFVenue = ''.obs;
   final selectedDate = DateTime.now().obs;
@@ -100,7 +100,7 @@ class Controller extends GetxController {
     });
     if (response.statusCode == 200) {
       nav.changeTabIndex(0);
-      eventID.value = eventID.value + 17;
+      eventID.value = eventID.value + 1;
     } else {
       print(user["ID"].toString());
       print(response.body);
