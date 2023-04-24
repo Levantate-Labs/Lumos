@@ -86,6 +86,7 @@ class NavigationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         bottomNavigationBar: CustomNavBar(
           navController: navController,
         ),
@@ -97,7 +98,7 @@ class NavigationPage extends StatelessWidget {
                 nav: navController,
               ),
               const ExplorePage(),
-              const CertificatePage(),
+              CertificatePage(),
               ProfilePage(),
               NewPostPage(),
               NewPost(),

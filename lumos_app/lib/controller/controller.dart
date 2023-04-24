@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:lumos_app/controller/nav_controller.dart';
 import 'package:lumos_app/navigation/navbar.dart';
 import 'package:lumos_app/screens/welcome.dart';
 import 'package:lumos_app/screens/feeds.dart';
@@ -10,10 +12,18 @@ import 'package:lumos_app/screens/feeds.dart';
 import '../models/posts.dart';
 
 class Controller extends GetxController {
-  final storage = new GetStorage();
-  late var user = {};
+  final NavController nav = NavController();
+
+  final storage = GetStorage();
   final String baseUrl = "https://lumos-production.up.railway.app";
-  final userData = "".obs;
+
+  var eventID = 101.obs;
+  final tFEventName = ''.obs;
+  final tFVenue = ''.obs;
+  final selectedDate = DateTime.now().obs;
+  final dateController = TextEditingController();
+  final tFImgSrc = ''.obs;
+  final content = ''.obs;
 
   Future<String?> login(String pass, String userId) async {
     final response = await http.post(Uri.parse('$baseUrl/user/login'),
@@ -21,7 +31,7 @@ class Controller extends GetxController {
 
     if (response.statusCode == 200) {
       storage.write('user', response.body);
-      Get.off(() => NavigationPage());
+      Get.to(() => NavigationPage());
     } else {
       print(response.body.toString());
       return response.body;
@@ -30,7 +40,7 @@ class Controller extends GetxController {
 
   Map<String, dynamic>? getUser() {
     final user = storage.read('user');
-    print(user.toString());
+
     // Return null if the user data doesn't exist
     if (user == null) {
       return null;
@@ -39,6 +49,13 @@ class Controller extends GetxController {
     }
     // Parse the user data as JSON and return it
     return jsonDecode(user);
+  }
+
+  @override
+  void onClose() {
+    // dispose the controller when the widget is removed from the widget tree
+    dateController.dispose();
+    super.onClose();
   }
 
   void logout() {
@@ -57,5 +74,38 @@ class Controller extends GetxController {
       return events;
     }
     return [];
+  }
+
+  // var user = getUser();
+
+  void registerEvent() async {
+    var user = jsonDecode(storage.read('user'));
+    print(user["ID"].toString());
+    final response = await http.post(Uri.parse('$baseUrl/post/create'), body: {
+      "ID": eventID.value.toString(),
+      "content": content.value,
+      "postType": "EVENT",
+      "name": tFEventName.value,
+      "location": tFVenue.value,
+      "tags": '["Hackathon", "Web3", "Open Innovation", "NoToDrugs"]',
+      "createdById": user["ID"].toString(),
+      "imageUrl": tFImgSrc.value,
+
+      // "ID": eventID.value.toString(),
+      // "tags": [],
+      // "content": content.value,
+      // "postType": "EVENT",
+      // "createdById": user["ID"].toString(),
+      // "imageUrl": tFImgSrc.value,
+      // "name": tFEventName.value,
+      // "location": tFVenue.value,
+    });
+    if (response.statusCode == 200) {
+      nav.changeTabIndex(0);
+      eventID.value = eventID.value + 17;
+    } else {
+      print(user["ID"].toString());
+      print(response.body);
+    }
   }
 }

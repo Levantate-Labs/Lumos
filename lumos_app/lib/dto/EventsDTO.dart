@@ -33,6 +33,8 @@ class Event {
     required this.tags,
     required this.createdById,
     required this.createdAt,
+    required this.participantName,
+    required this.eventName,
   });
 
   String id;
@@ -44,18 +46,21 @@ class Event {
   List<String> tags;
   String createdById;
   DateTime createdAt;
+  String participantName;
+  String eventName;
 
   factory Event.fromJson(Map<String, dynamic> json) => Event(
-        id: json["ID"],
-        content: json["content"],
-        postType: json["postType"],
-        name: json["name"],
-        dateOfEvent: json["dateOfEvent"],
-        location: json["location"],
-        tags: List<String>.from(json["tags"].map((x) => x)),
-        createdById: json["createdById"],
-        createdAt: DateTime.parse(json["createdAt"]),
-      );
+      id: json["ID"],
+      content: json["content"],
+      postType: json["postType"],
+      name: json["name"],
+      dateOfEvent: json["dateOfEvent"],
+      location: json["location"],
+      tags: List<String>.from(json["tags"].map((x) => x)),
+      createdById: json["createdById"],
+      createdAt: DateTime.parse(json["createdAt"]),
+      participantName: json["name"],
+      eventName: json["eventName"]);
 
   Map<String, dynamic> toJson() => {
         "ID": id,
