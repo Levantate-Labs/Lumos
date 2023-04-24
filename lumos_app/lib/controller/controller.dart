@@ -76,8 +76,6 @@ class Controller extends GetxController {
     return [];
   }
 
-  // var user = getUser();
-
   void registerEvent() async {
     var user = jsonDecode(storage.read('user'));
     print(user["ID"].toString());

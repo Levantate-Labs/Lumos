@@ -11,7 +11,7 @@ class CertificatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Events'),
+        title: Text('Certificates and Documents'),
       ),
       body: FutureBuilder<List<Events>>(
         future: controller.getEvents(),
@@ -35,7 +35,7 @@ class CertificatePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Akhil",
+                          controller.getUser()!["ID"].toString(),
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
