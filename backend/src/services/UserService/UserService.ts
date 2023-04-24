@@ -41,7 +41,7 @@ export class UserService implements IUserService {
                 return { user, response: { statusCode: 200, message: "Login Successful" } };
             }
 
-            return { response: { statusCode: 403, message: "Wrong Password" } };
+            return { user, response: { statusCode: 403, message: "Wrong Password" } };
         }
 
         return { response: { statusCode: 403, message: "Wrong Password" } }; 
